@@ -30,8 +30,10 @@ include '../model/pdo.php';
               }
               include 'category/add.php';
               break;
-            case 'add-product':
-              include 'product/add.php';
+            case 'list':
+              $sql = "SELECT * FROM `categories` ORDER BY name";
+              $listCategory = pdo_query($sql);
+              include 'category/list.php';
               break;
             default:
               include 'home.php';

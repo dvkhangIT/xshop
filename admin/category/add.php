@@ -13,7 +13,7 @@
       <button type="submit" name="addnew" class="addnew">Thêm mới</button>
       <button type="button" name="reset" class="reset">Nhập lại</button>
     </a>
-    <a href="list-kind.html">
+    <a href="index.php?act=list">
       <button type="button" name="" class="list">Danh sách</button>
     </a>
   </div>

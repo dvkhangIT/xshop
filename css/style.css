@@ -341,3 +341,6 @@ td button,
   border: 1px solid #ccc;
   padding: 10px 20px;
 }
+.btn {
+  margin-bottom: 30px;
+}
