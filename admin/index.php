@@ -1,3 +1,6 @@
+<?php
+include '../model/pdo.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +22,12 @@
           $act = $_GET['act'];
           switch ($act) {
             case 'add-category':
+              if (isset($_POST['addnew'])) {
+                $kind = $_POST['kind'];
+                $sql = "INSERT INTO `categories`( `name`) VALUES ('$kind')";
+                pdo_execute($sql);
+                $noti = 'Thêm thành công!';
+              }
               include 'category/add.php';
               break;
             case 'add-product':
