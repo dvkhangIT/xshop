@@ -18,8 +18,8 @@
        <td>' . $id . '</td>
        <td> ' . $name . '</td>
        <td>
-         <a href="index.php?act=edit&id=' . $id . '"><button type="submit" class="edit" name="edit">Sửa</button></a>
-         <a href="index.php?act=delete&id=' . $id . '"><button type="submit" class="delete" name="delete">Xóa</button></a>
+         <a href="index.php?act=edit-category&id=' . $id . '"><button type="submit" class="edit" name="edit">Sửa</button></a>
+         <a href="index.php?act=delete-category&id=' . $id . '"><button type="submit" class="delete" name="delete">Xóa</button></a>
        </td>
      </tr>';
       }

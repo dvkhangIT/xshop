@@ -30,15 +30,34 @@ include '../model/pdo.php';
               }
               include 'category/add.php';
               break;
-            case 'list':
+            case 'list-category':
               $sql = "SELECT * FROM `categories` ORDER BY id DESC";
               $listCategory = pdo_query($sql);
               include 'category/list.php';
               break;
-            case 'delete':
+            case 'delete-category':
               if ($_GET['id'] && $_GET['id'] > 0) {
                 $sql = "DELETE FROM `categories` WHERE id =" . $_GET['id'];
                 pdo_execute($sql);
+              }
+              $sql = "SELECT * FROM `categories` ORDER BY name";
+              $listCategory = pdo_query($sql);
+              include 'category/list.php';
+              break;
+            case 'edit-category':
+              if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $sql = "SELECT `id`, `name` FROM `categories` WHERE id = " . $_GET['id'];
+                $category = pdo_query_one($sql);
+              }
+              include 'category/update.php';
+              break;
+            case 'update-category':
+              if (isset($_POST['update'])) {
+                $id = $_POST['id'];
+                $kind = $_POST['kind'];
+                $sql = "UPDATE `categories` SET `name`='$kind' WHERE id=" . $id;
+                pdo_execute($sql);
+                $noti = 'Cập nhật thành công!';
               }
               $sql = "SELECT * FROM `categories` ORDER BY name";
               $listCategory = pdo_query($sql);
