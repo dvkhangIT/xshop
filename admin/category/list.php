@@ -18,10 +18,8 @@
        <td>' . $id . '</td>
        <td> ' . $name . '</td>
        <td>
-         <form action="#">
-           <button type="submit" class="edit" name="edit">Sửa</button>
-           <button type="submit" class="delete" name="delete">Xóa</button>
-         </form>
+         <a href="index.php?act=edit&id=' . $id . '"><button type="submit" class="edit" name="edit">Sửa</button></a>
+         <a href="index.php?act=delete&id=' . $id . '"><button type="submit" class="delete" name="delete">Xóa</button></a>
        </td>
      </tr>';
       }

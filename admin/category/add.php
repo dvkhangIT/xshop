@@ -19,10 +19,7 @@
   </div>
   <?php
   if (isset($noti) && $noti != '') {
-    echo "<script>
-    alert('$noti');
-    </script>
-    ";
+    echo $noti;
   }
   ?>
 </form>

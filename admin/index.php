@@ -31,6 +31,15 @@ include '../model/pdo.php';
               include 'category/add.php';
               break;
             case 'list':
+              $sql = "SELECT * FROM `categories` ORDER BY id DESC";
+              $listCategory = pdo_query($sql);
+              include 'category/list.php';
+              break;
+            case 'delete':
+              if ($_GET['id'] && $_GET['id'] > 0) {
+                $sql = "DELETE FROM `categories` WHERE id =" . $_GET['id'];
+                pdo_execute($sql);
+              }
               $sql = "SELECT * FROM `categories` ORDER BY name";
               $listCategory = pdo_query($sql);
               include 'category/list.php';
