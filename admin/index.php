@@ -1,5 +1,6 @@
 <?php
 include '../model/pdo.php';
+include '../model/category.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,30 +25,25 @@ include '../model/pdo.php';
             case 'add-category':
               if (isset($_POST['addnew'])) {
                 $kind = $_POST['kind'];
-                $sql = "INSERT INTO `categories`( `name`) VALUES ('$kind')";
-                pdo_execute($sql);
+                add_category($kind);
                 $noti = 'Thêm thành công!';
               }
               include 'category/add.php';
               break;
             case 'list-category':
-              $sql = "SELECT * FROM `categories` ORDER BY id DESC";
-              $listCategory = pdo_query($sql);
+              $listCategory = loadAll_category();
               include 'category/list.php';
               break;
             case 'delete-category':
               if ($_GET['id'] && $_GET['id'] > 0) {
-                $sql = "DELETE FROM `categories` WHERE id =" . $_GET['id'];
-                pdo_execute($sql);
+                delete_category($_GET['id']);
               }
-              $sql = "SELECT * FROM `categories` ORDER BY name";
-              $listCategory = pdo_query($sql);
+              $listCategory = loadAll_category();
               include 'category/list.php';
               break;
             case 'edit-category':
               if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $sql = "SELECT `id`, `name` FROM `categories` WHERE id = " . $_GET['id'];
-                $category = pdo_query_one($sql);
+                $category = loadOne_category($_GET['id']);
               }
               include 'category/update.php';
               break;
@@ -55,12 +51,10 @@ include '../model/pdo.php';
               if (isset($_POST['update'])) {
                 $id = $_POST['id'];
                 $kind = $_POST['kind'];
-                $sql = "UPDATE `categories` SET `name`='$kind' WHERE id=" . $id;
-                pdo_execute($sql);
+                update_category($id, $kind);
                 $noti = 'Cập nhật thành công!';
               }
-              $sql = "SELECT * FROM `categories` ORDER BY name";
-              $listCategory = pdo_query($sql);
+              $listCategory = loadAll_category();
               include 'category/list.php';
               break;
             default:
