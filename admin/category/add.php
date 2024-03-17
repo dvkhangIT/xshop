@@ -10,7 +10,7 @@
   </div>
   <div class="btn">
     <a href="">
-      <button type="submit" name="addnew" class="addnew">Thêm mới</button>
+      <button type="submit" name="addCategory" class="addCategory">Thêm mới</button>
       <button type="button" name="reset" class="reset">Nhập lại</button>
     </a>
     <a href="index.php?act=list-category">
