@@ -79,7 +79,15 @@ include '../model/product.php';
               include 'product/add.php';
               break;
             case 'list-product':
-              $listProduct = loadAll_product();
+              if (isset($_POST['search'])) {
+                $keyWord = $_POST['input-search'];
+                $idCategory = $_POST['idCategory'];
+              } else {
+                $keyWord = '';
+                $idCategory = 0;
+              }
+              $listProduct = loadAll_product($keyWord, $idCategory);
+              $listCategory = loadAll_category();
               include 'product/list.php';
               break;
             case 'delete-product':

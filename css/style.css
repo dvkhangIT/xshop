@@ -15,7 +15,7 @@ label {
   display: block;
 }
 input,
-button {
+select button {
   outline: 0;
   border: 0;
 }
@@ -354,4 +354,22 @@ textarea {
 }
 td img {
   width: 150px;
+}
+.form-list-product {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+}
+.form-list-product input {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  /* background-color: #ccc; */
+  border-radius: 1px solid;
+}
+.select select {
+  padding: 10px 20px;
+}
+.select button {
+  padding: 10px 20px;
 }

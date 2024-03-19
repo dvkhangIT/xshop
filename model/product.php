@@ -4,9 +4,16 @@ function add_product($name, $price, $description, $fileName, $idCategory)
   $sql = "INSERT INTO `products`(`name`, `price`, `image`, `description`,`idCategories`) VALUES ('$name','$price','$fileName','$description','$idCategory')";
   pdo_execute($sql);
 }
-function loadAll_product()
+function loadAll_product($keyWord, $idCategory)
 {
-  $sql = "SELECT * FROM `products` ORDER BY id DESC";
+  $sql = "SELECT * FROM `products` WHERE 1";
+  if ($keyWord != '') {
+    $sql .= " AND `name` LIKE '%" . $keyWord . "%'";
+  }
+  if ($idCategory > 0) {
+    $sql .= " AND `idCategories` = " . $idCategory . "";
+  }
+  $sql .= " ORDER BY id DESC";
   return pdo_query($sql);
 }
 function delete_product($id)

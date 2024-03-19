@@ -1,4 +1,19 @@
 <h1>Danh sách sản phẩm</h1>
+<form class="form-list-product" action="index.php?act=list-product" method="post">
+  <input type="text" name="input-search" placeholder="Nhập tên sản phẩm">
+  <div class="select">
+    <select name="idCategory" id="" class="">
+      <option value="0" selected>Tất cả danh mục</option>
+      <?php
+      foreach ($listCategory as $category) {
+        extract($category);
+        echo ' <option value="' . $id . '">' . $name . '</option>';
+      }
+      ?>
+    </select>
+    <button type="submit" name="search">Tìm</button>
+  </div>
+</form>
 <div class="table-kind">
   <table>
     <thead>
