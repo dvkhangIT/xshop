@@ -95,6 +95,7 @@ include '../model/product.php';
                 delete_product($_GET['id']);
               }
               $listProduct = loadAll_product();
+              $listCategory = loadAll_category();
               include 'product/list.php';
               break;
             case 'edit-product':

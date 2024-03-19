@@ -4,7 +4,7 @@ function add_product($name, $price, $description, $fileName, $idCategory)
   $sql = "INSERT INTO `products`(`name`, `price`, `image`, `description`,`idCategories`) VALUES ('$name','$price','$fileName','$description','$idCategory')";
   pdo_execute($sql);
 }
-function loadAll_product($keyWord, $idCategory)
+function loadAll_product($keyWord = '', $idCategory = 0)
 {
   $sql = "SELECT * FROM `products` WHERE 1";
   if ($keyWord != '') {
